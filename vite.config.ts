@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'GymProg — Treinos & Progressão',
-        short_name: 'GymProg',
+        name: 'TopSet — Treinos & Progressão',
+        short_name: 'TopSet',
         description: 'Acompanhe seus treinos, registre cargas e visualize seu progresso.',
         theme_color: '#0d0d0f',
         background_color: '#0d0d0f',

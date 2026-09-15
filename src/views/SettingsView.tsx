@@ -290,7 +290,7 @@ export function SettingsView({ data, onUpdate, onReset }: Props) {
           <div className="card">
             <div className="settings-row">
               <div className="settings-row-info">
-                <div className="settings-row-label">GymProg</div>
+                <div className="settings-row-label">TopSet</div>
                 <div className="settings-row-desc">Versão 1.0 — Fase 1 · Dados armazenados localmente no dispositivo</div>
               </div>
               <Settings size={18} color="var(--text-muted)" />
