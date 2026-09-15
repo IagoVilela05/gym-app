@@ -103,4 +103,4 @@ export interface WorkoutDraft {
 }
 
 // Runtime sentinel so Vite/esbuild does not produce an empty module
-export const __GYMPROG_TYPES_VERSION__ = '1';
+export const __TOPSET_TYPES_VERSION__ = '1';

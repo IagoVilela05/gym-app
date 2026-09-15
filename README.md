@@ -1,4 +1,4 @@
-# 💪 GymProg
+# 💪 TopSet
 
 > Aplicativo de acompanhamento de treinos de musculação — PWA mobile-first, offline-first, sem backend.
 

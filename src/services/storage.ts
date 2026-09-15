@@ -1,8 +1,10 @@
 import { AppData, AppSettings, Exercise, WorkoutTemplate, WorkoutSession, TrainingBlock, WorkoutDraft } from '../types';
 import { DEFAULT_EXERCISES } from './defaultData';
 
-const STORAGE_KEY = 'gymprog_data';
-const DRAFT_KEY = 'gymprog_workout_draft';
+const STORAGE_KEY = 'topset_data';
+const LEGACY_STORAGE_KEY = 'gymprog_data';
+const DRAFT_KEY = 'topset_workout_draft';
+const LEGACY_DRAFT_KEY = 'gymprog_workout_draft';
 
 const DEFAULT_SETTINGS: AppSettings = {
   theme: 'obsidian',
@@ -21,7 +23,7 @@ function getDefaultData(): AppData {
 
 export function loadData(): AppData {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
     if (!raw) return getDefaultData();
     const parsed = JSON.parse(raw) as AppData;
 
@@ -121,7 +123,7 @@ export function generateId(): string {
 
 export function loadDraft(): WorkoutDraft | null {
   try {
-    const raw = localStorage.getItem(DRAFT_KEY);
+    const raw = localStorage.getItem(DRAFT_KEY) || localStorage.getItem(LEGACY_DRAFT_KEY);
     if (!raw) return null;
     return JSON.parse(raw) as WorkoutDraft;
   } catch {
@@ -133,6 +135,7 @@ export function saveDraft(draft: WorkoutDraft | null): void {
   try {
     if (!draft) {
       localStorage.removeItem(DRAFT_KEY);
+      localStorage.removeItem(LEGACY_DRAFT_KEY);
     } else {
       localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
     }
@@ -142,5 +145,6 @@ export function saveDraft(draft: WorkoutDraft | null): void {
 export function clearDraft(): void {
   try {
     localStorage.removeItem(DRAFT_KEY);
+    localStorage.removeItem(LEGACY_DRAFT_KEY);
   } catch (_) {}
 }
